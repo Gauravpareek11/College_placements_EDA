@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<style>
+header{
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College_placements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<header>
+<h1>College Placements</h1>
+<marquee width="" direction="" height="">
+I have Performed Exploratory Data Analysis on College Placements Dataset and then created a Machie Learning Model to
+ Predict whether a student will be placed or not.
+</marquee>
+</header>
+<h3>Dataset Overview</h3>
+<p>A University Announced Its On-Campus Placement Records For The Engineering Course. The Data Is From The Years 2013 And 2014.
+The Following Is The College Placements Data Compiled Over 2 years.<br>
+The Dataset has 8 columns:
+</p>
+<ul>
+<li><b>Numeric Features:</b> Age, Internships, CGPA, Hostel, HistoryOfBacklogs, PlacedOrNot.</li>
+<li><b>Categorical Features:</b> Gender, Stream</li>
+</ul>
+<img src="{% static 'Dataset.png' %}">
+<a href="https://www.kaggle.com/tejashvi14/engineering-placements-prediction?select=collegePlace.csv" target="_blank">Dataset Link</a>
+<h3>Exploratory Data Analysis</h3>
+<p>After performing EDA on the Dataset we got following graphs and outcomes</p>
+<img src="{% static 'DensityPlot.png' %}">
+<p>Density and histogram plot on Age and CGPA column</p>
+<ul>
+<li>Mean CGPA of Students 7.073836817262306</li>
+<li>Min age is 19 and maximum age is 30</li>
+<li>Average age is 21</li>
+</ul>
+<img src="{% static 'countPlot.png' %}">
+<img src="{% static 'countPlot1.png' %}">
+<p>Count Plot<p>
+<ul>
+<li>Percentage of students residing in hostel 26.9%</li>
+<li>Percentage of students Placed 55.26%</li>
+<li>Percentage of students with backlog history 19.22%</li>
+<li>Percentage of Students of who haven't done any internship 44.88</li>
+</ul>
+<img src="{% static 'HeatMap.png' %}">
+<p>HeatMap<p>
+
+<img src="{% static 'BarPlot.png' %}">
+<P>Bar plot on column with respect to Gender<p>
+<ul>
+<li>Percentage of females getting placed 56.01%</li>
+<li>Percentage of males getting placed 55.11%</li>
+<li>Percentage of females residing in hostels 46.84%</li>
+<li>Percentage of males residing in hostels 22.95%</li>
+<li>Percentage of females getting backlog 16.9%</li>
+<li>Percentage of males getting backlog 19.68%</li>
+<li>Percentage of females getting internships 67.41%</li>
+<li>Percentage of males getting internships 52.69%</li>
+</ul>
+<img src="{% static 'Internship_Gender.png' %}">
+<ul>
+<li>Percentage of candidates getting placed and previously done internships 60.1%</li>
+<li>Percentage of candidates getting placed and haven't done internships 39.9%</li>
+</ul>
+<img src="{% static 'Hostel_Gender.png' %}"><img src="{% static 'History_of_Backlogs.png' %}">
+
+<h3>Conclusions</h3>
+<ul>
+<li>Male candidates have more backlog than females</li>           
+<li>Females have more tendency of getting internships</li>
+<li>Meadian age of candidates getting placed 21.0</li>
+<li>Day Scholars slightly higher chance of getting placed</li>
+<li>Students from EC branch have the max chances of getting placed </li>
+followed by IT by a narrow margin and then CS and then Electrical.</li>
+<li>Females have more tendency to stay in hostel than males</li>
+<li>Doing internships increases your chance of getting placed</li>
+<li>Chances of getting placed for females and males are almost same</li>
+<ul>
+
+<h3>Predict Your Chances</h3>
+<form action="{% url 'result' %}",method="get">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="Age">Age</label><br>
+    <input type="number" id="Age" name="Age"><br>
+    <label for="Gender">Gender(M/F)</label><br>
+    <input type="text" id="Gender" name="Gender"><br>
+    <label for="Stream">Stream</label><br>
+    <p>Choose from these Computer Science,Information Technology,Mechanical:5,Electronics And Communication,
+    Electrical,Civil<p>
+    <input type="text" id="Stream" name="Stream"><br>
+    <label for="Internship">No. of Internships Done</label><br>
+    <input type="number" id="Internship" name="Internship"><br>
+    <label for="CGPA">CGPA</label><br>
+    <input type="number" id="CGPA" name="CGPA"><br>
+    <label for="Hostel">Residing in Hostel(1/0)</label><br>
+    <input type="number" id="Hostel" name="Hostel"><br>
+    <label for="HistoryOfBacklogs">Number of Backlogs</label><br>
+    <input type="number" id="HistoryOfBacklogs" name="HistoryOfBacklogs"><br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
