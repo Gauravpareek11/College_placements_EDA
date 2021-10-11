@@ -1,0 +1,27 @@
+body{
+  background-color:#00c9ff;
+}
+header{
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+
+}
+img{
+  display:block
+}
+h3{
+  margin-top: 5px;
+  margin-left: 10px;
+}
+figcaption{
+  text-align: center;
+  font-weight: bold;
+}
+/* li{
+  background-color: #00c9ff;
+}
+div{
+  background-color: #00c9ff;
+} */

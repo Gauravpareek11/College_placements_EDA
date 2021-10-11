@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>prediction result</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
 </head>
 <body>
 <h1>The Results are:</h1>
-
-<h1>Its {{ans}}</h1>
+{% if ans %}
+<h3>You have high chances of getting placed Just be consistent with your work</h3>
+<img src="{% static 'success.jpg' %}">
+{% else %}
+<h3>You have very less chance of getting placed Try hard</h3>
+<img src="{% static 'failure.png' %}">
+{% endif %}
 </body>
